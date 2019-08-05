@@ -1,0 +1,134 @@
+.time-line-container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    h1 {
+        margin: 50px 0px;
+    }
+}
+
+.time-line {
+    position: relative;
+
+    @include lg-s(880px) {
+        min-width: 650px;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        border: 1px solid rgb(230, 66, 230);
+        height: 0%;
+        top: 0px;
+        opacity: 0;
+        animation: expaaTimeline 1s 1s 1 forwards linear;
+
+        @include lg-s(880px) {
+            left: 50%;
+        }
+
+        @include sm-lg(600px,880px){
+            left: -5px;
+        }
+        @include sm {
+            left: 0%;
+        }
+    }
+
+    h3 {
+        font-size: 2rem;
+        text-transform: capitalize;
+    }
+
+    ul {
+        @include sm {
+            margin-left: 8px;
+        }
+
+        p {
+            color: #ccc;
+            text-align: justify;
+            text-justify: inter-ideograph;
+        }
+
+        li {
+            position: relative;
+            background: #000;
+            max-width: 250px;
+            padding: 20px;
+            margin: 5px;
+            border-right: 4px solid transparent;
+            border-left: 4px solid greenyellow;
+            border-radius: 0 8px 8px 0;
+            float: right;
+            clear: both;
+            opacity: 0;
+            transform: translateY(100px);
+            @for $i from 1 to 5 {
+                &:nth-child(#{$i}) {
+                    animation: fadFromTop (.3s * $i) (.3s * $i) 1 forwards linear;
+                }
+            }
+            .time-map{
+                font-size: .7rem;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                max-height: 20px;
+                max-width: 20px;
+                min-height: 15px;
+                min-width: 15px;
+                background: rgb(230, 66, 230);
+                border-radius: 50%;
+                top: -5px;
+            }
+
+            &:nth-of-type(odd) {
+                &::before {
+                    @include lg-s(880px) {
+                        right: -35px;
+                    }
+                    @include sm-lg(600px,880px){
+                        left: -20px;
+                    }
+                    @include sm {
+                        left: -23px;
+                    }
+                }
+            }
+
+            &:nth-of-type(even) {
+                &::before {
+                    left: -33px;
+
+                    @include sm-lg(600px,880px){
+                        left: -20px;
+                    }
+                    @include sm {
+                        left: -23px;
+                    }
+                }
+            }
+        }
+
+        li:nth-of-type(odd) {
+            border-radius: 0 8px 8px 0;
+
+            @include lg-s(880px) {
+                border-left: 4px solid transparent;
+                border-right: 4px solid greenyellow;
+            border-radius: 8px 0 0 8px;
+            }
+
+            border-right: 4px solid transparent;
+            border-left: 4px solid greenyellow;
+            float: left;
+            clear: both;
+        }
+    }
+
+}

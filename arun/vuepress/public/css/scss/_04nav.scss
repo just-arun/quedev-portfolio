@@ -1,0 +1,132 @@
+aside {
+    overflow: hidden;
+    @include sm {
+        z-index: -2;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    @include lg {
+        z-index: 5;
+        background: lighten($color: $bgc, $amount: 2);
+    }
+
+    height: 100vh;
+    display: grid;
+    text-align: center;
+    grid-template-rows: 250px auto;
+
+    .close {
+        @include sm {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 10px;
+            font-size: 2rem;
+            z-index: 6;
+        }
+
+        @include lg {
+            display: none;
+        }
+    }
+
+    @include lg {
+        position: sticky;
+    }
+
+    @include sm {
+        position: fixed;
+        width: 100vw;
+        animation: RevelaHome 1.4s 1 forwards linear;
+    }
+
+    top: 0px;
+    left: 0px;
+
+    .aside-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        background: lighten($color: $bgc, $amount: 2);
+        @include sm {
+        opacity: 0;
+            transform: translateX(-100vw);
+        }
+    }
+
+    nav {
+        padding: 15px;
+        background: lighten($color: $bgc, $amount: 2);
+        @include sm {
+        opacity: 0;
+            transform: translateX(100vw);
+        }
+    }
+}
+
+.aside-header-active {
+    @include sm {
+        animation: NavAnimation2 .3s 1 forwards linear;
+    }
+}
+
+.nav-active {
+    @include sm {
+        animation: NavAnimation1 .3s 1 forwards linear;
+    }
+}
+
+.aside-active {
+    @include sm {
+        z-index: 5;
+        opacity: 1;
+        visibility: visible;
+        // background: lighten($color: $bgc, $amount: 2);
+    }
+}
+
+menu {
+    display: none;
+
+    @include sm {
+        opacity: 1;
+        z-index: 5;
+        display: block;
+        position: fixed;
+        left: 10px;
+        top: 20px;
+        padding: 20px;
+
+        // background: #faf;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            left: 0px;
+            height: 8px;
+            background: $color;
+            border-radius: 5px;
+        }
+
+        &::before {
+            top: 5px;
+            transition: 2s;
+        }
+
+        &::after {
+            width: 35px;
+            transition: 1s;
+        }
+    }
+}
+
+.menu-active {
+    @include sm {
+        opacity: 0;
+        left: 80%;
+    }
+}

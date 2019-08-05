@@ -1,0 +1,49 @@
+* {
+    margin: 0px;
+    transition: .4s;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+body {
+    background: $bgc;
+    color: $color;
+    font-family: $defaultFont;
+}
+h1 {
+    text-transform: capitalize;
+    @include lg {
+        font-size: 4.5rem;
+    }
+    @include sm {
+        font-size: 2.3rem;
+    }
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    li {
+        list-style: none;
+        a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin: 8px;
+            border: .5px solid transparent;
+            padding: 10px;
+            &:hover {
+                background: lighten($color: $bgc, $amount: 8);
+            }
+        }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.page {
+    animation: Pagetransition .4s 1 forwards linear;
+}

@@ -1,0 +1,45 @@
+@mixin tGrad($i) {
+    background: linear-gradient(to bottom right, #000, rgba(0, 0, 0, $i));
+}
+
+@mixin sm {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin lg-only {
+    @media screen and (min-width: 600px) and (max-width: 900px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (min-width: 900px) {
+        @content;
+    }
+}
+
+@mixin sm-lg($x, $y) {
+    @media screen and (min-width: $x) and (max-width: $y) {
+        @content;
+    }
+}
+
+@mixin sm-s($i) {
+    @media screen and (max-width: $i) {
+        @content;
+    }
+}
+
+@mixin lg-s($i) {
+    @media screen and (min-width: $i) {
+        @content;
+    }
+}

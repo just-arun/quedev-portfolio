@@ -1,0 +1,138 @@
+.contact-form {
+    position: relative;
+    display: flex;
+    @include sm-s(900px) {
+        flex-wrap: wrap;
+    }
+    justify-content: center;
+    margin: 5px auto;
+    box-sizing: border-box;
+    max-width: 600px;
+    @include sm { max-width: 90%; }
+    .describe{
+        min-width: 300px;
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            position: relative;
+            margin-bottom: 15px;
+            @include sm-s(900px) {
+                margin-bottom: 30px;
+                font-size: 2.3rem;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                border: 2px solid $color;
+                padding: 2px;
+                background: $color;
+                width: 30px;
+                top: -10px;
+                left: 0px;
+                z-index: 2;
+            }
+        }
+        p {
+            color: #ccc;
+            margin-bottom: 20px;
+            @include lg { font-size: 1.4rem; }
+        }
+        .icons {
+            display: flex;
+            padding: 20px auto;
+            justify-content: space-around;
+        }
+        a {
+            text-decoration: none;
+            color: #aaa;
+            transition: .3s;
+            font-size: 1.5rem;
+            position: relative;
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     width: 50%;
+            //     height: 100%;
+            //     left: 0px;
+            //     top: 0px;
+            //     background: #f00;
+            //     padding: 2px;
+            //     border-radius: 4px;
+            // }
+            // &:hover {
+            //     color:  #fff;
+            // }
+        }
+    }
+    form {
+        flex: 1;
+        box-sizing: border-box;
+        background: $bgc;
+        position: relative;
+        margin: 5px auto;
+
+        input,
+        textarea {
+            box-sizing: border-box;
+            background: #000;
+            color: white;
+            border: 4px solid lighten($color: $bgc, $amount: 3);
+            margin: 10px;
+            outline: none;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            min-width: 90%;
+            max-width: 90%;
+            position: relative;
+            outline: none;
+            &:focus,
+            &:valid {
+                background: #000;
+            }
+        }
+        textarea {
+            min-height: 200px;
+            max-height: 600px;
+        }
+        button {
+            border: 0px;
+            padding: 10px;
+            color: $color;
+            border: 3px solid $color;
+            outline: none;
+            background: transparent;
+            min-width: 90%;
+            max-width: 90%;
+            margin: 10px;
+            border-radius: 4px;
+            &:hover{
+                color: #fff;
+                background: $color;
+                border: 3px solid $color;
+                cursor: pointer;
+            }
+        }
+    }
+    .thanks-msg {
+        position: fixed;
+        right: 20px;
+        padding: 10px;
+        font-size: .8rem;
+        top: 50%;
+        color: white;
+        background: rgb(247, 0, 255);
+        border-radius: 4px;
+        z-index: 5;
+        font-weight: 600;
+        text-transform: capitalize;
+        transform: translateX(130px);
+    }
+}
+
+.thanks-msg-active {
+    animation: thanks 2s 1 forwards linear;
+}

@@ -1,0 +1,21 @@
+aside {
+    z-index: 5;
+    background: lighten($color: $bgc, $amount: 2);
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-rows: 250px auto;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    .aside-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav {
+        padding: 15px;
+    }
+}
